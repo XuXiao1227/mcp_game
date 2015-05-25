@@ -1,0 +1,34 @@
+.modal.fade.bs-example-modal-lg(id="myModal", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+    .modal-dialog(style="width:800px;")
+        .modal-content
+            .modal-header
+                button.close(type="button", data-dismiss="modal", aria-label="Close")
+                    span(aria-hidden="true") &times;
+                h4.modal-title 选择一张图片
+            .modal-body(id="myModalBody")
+                p 数据加载中...
+            .modal-footer
+                button.btn.btn-primary(id="select", type="button") 选择
+                button.btn.btn-primary(type="button", data-dismiss="modal") 关闭
+.container-fluid
+    .row
+        .col-sm-6
+            p 请选择一张图片（支持JPEG，PNG，GIF格式）
+            button.btn.btn-default(id="choose-button", type="button", data-toggle="modal", data-target="#myModal") 选择文件
+            |&nbsp;&nbsp;
+            button.btn.btn-default(id=id + '_generate', type="button") 生成头像
+        .col-sm-6
+            p 效果预览
+.container-fluid(style="padding-top:6px;")
+    .row
+        .col-sm-6
+            img(id="sourceImg", width="400px")
+        .col-sm-6(id=id + '_preview')
+            div(style="border:1px dotted black;float: left;position: relative;overflow: hidden;width: 100px;height: 100px;")
+                img(id=id + "_previewImg", style="position: relative;")
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+if loadIas
+    link(rel="stylesheet", type="text/css", href="./css/imgareaselect-default.css")
+    script(type='text/javascript', src='./js/jquery.imgareaselect.pack.js')
+script(type='text/javascript')
+     |CurSite.IMPL['#{id}'] = new CurSite.COMP.UserUploadAvatar({id:'#{id}'});

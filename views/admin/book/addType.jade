@@ -1,0 +1,12 @@
+.container-fluid
+    .row
+        .col-md-12
+            form
+                .form-group
+                    label.control-label(for=id + '_name') 名称
+                    input.form-control(id=id + '_name', type="text", placeholder="名称", data-toggle="tooltip", data-placement="right", title="6-40位字母,_,数字,@")
+                .form-group
+                    button.btn.btn-default(id=id + '_submit', type="button", data-loading-text="处理中..", autocomplete="off") 创建
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.AdminBookAddType({id:'#{id}', parent:'#{parent}'});

@@ -1,0 +1,25 @@
+mixin pageBar(id, url, count, skip, limit)
+    -var cur = parseInt(skip/limit) + 1;
+    if parseInt(count%limit) == 0
+        -var pCount = count/limit;
+    else
+        -var pCount = parseInt(count/limit) + 1
+    nav(id=id)
+        ul.pagination
+            li
+                a(toLocation=url, pIndex='1', aria-label="Previous")
+                    span(aria-hidden="true") &laquo;
+            -var i = 1;
+            while i < pCount + 1
+                if cur == i
+                    li.active
+                        a(toLocation=url, pIndex=i)=i
+                else
+                    li
+                        a(toLocation=url, pIndex=i)=i
+                -i++;
+            li
+                a(toLocation=url, pIndex=pCount, aria-label="Next")
+                    span(aria-hidden="true") &raquo;
+    script(type='text/javascript')
+        |CurSite.IMPL['#{id}'] = new CurSite.COMP.PageBar('#{id}', '#{url}', '#{cur}', '#{limit}');

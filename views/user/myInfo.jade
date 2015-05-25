@@ -1,0 +1,29 @@
+.container-fluid
+    .panel.panel-default
+        .panel-heading
+            h2.panel-title 基本信息
+        .panel-body
+            .col-sm-5
+                form.form-horizontal
+                    .form-group
+                        label.col-sm-3 用户名
+                        .col-sm-9=customer.username
+                    .form-group
+                        label.col-sm-3 密码
+                        .col-sm-9=customer.password
+                    .form-group
+                        label.col-sm-3 经验值
+                        .col-sm-9=customer.experience
+                    .form-group
+                        label.col-sm-3 金币
+                        .col-sm-9=customer.gold
+                    .form-group
+                        label.col-sm-3 注册时间
+                        .col-sm-9=customer.reg_time
+                     .form-group
+                        label.col-sm-3 用户昵称
+                        .col-sm-9=customer.nickname
+            .col-sm-7
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.UserMyInfo({id:'#{id}', parent:'#{parent}'});

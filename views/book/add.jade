@@ -1,0 +1,20 @@
+.container-fluid
+    .row
+        .col-md-12
+            form
+                .form-group
+                    label.control-label(for=id + '_name') 名称
+                    input.form-control(id=id + '_name', type="text", placeholder="名称", data-toggle="tooltip", data-placement="right", title="6-40位字母,_,数字,@")
+                .form-group
+                    label.control-label(for=id + '_type') 类型
+                    select.form-control(id=id + '_type')
+                        - each val in bookType
+                                option(value=val.id)=val.name
+                .form-group
+                    label.control-label(for=id + '_remark') 简介
+                    textarea.form-control(id=id + '_remark', style="height:100px;")
+                .form-group
+                    button.btn.btn-default(id=id + '_submit', type="button", data-loading-text="处理中..", autocomplete="off") 创建
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.BookAdd({id:'#{id}', parent:'#{parent}'});

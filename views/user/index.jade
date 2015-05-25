@@ -1,0 +1,52 @@
+doctype html
+html(lang="en")
+    head
+        include ../includes/strapcss.jade
+    body
+        .navbar-top.navbar.navbar-default.navbar-fixed-top(id="navbar-top")
+            .container
+                .navbar-header
+                    a.navbar-brand(href="./index.html") 首页
+                p.navbar-text.navbar-right.co-brand.-xs
+                    img(src="")
+        //header.top-header.jumbotron(id="top-header", style="background-image: url(./img/ballon.jpg);")
+            .container
+                h1 Hello, world!
+        .container(style="margin-top:62px;")
+            .row
+                .col-md-2(style="padding-top:10px;")
+                    .panel-group(id="accordion", role="tablist", aria-multiselectable="true")
+                        .panel.panel-primary
+                            .panel-heading(role="tab", id="myInfo")
+                                h4.panel-title(style="text-align:center")
+                                    a(data-toggle="collapse", data-parent="#accordion", href="#collapseOne", aria-expanded="true", aria-controls="collapseOne")
+                                        |我的资料
+                            .panel-collapse.collapse.in(id="collapseOne", role="tabpanel", aria-labelledby="myInfo")
+                                .panel-body(style="text-align:center")
+                                    ul.nav.nav-pills.nav-stacked
+                                        li(role="presentation")
+                                            a(id="pInfo", href="#")
+                                                |个人信息
+                                        li(role="presentation")
+                                            a(id="ticketInfo", href="#")
+                                                |投注记录
+                        .panel.panel-primary
+                            .panel-heading(role="tab", id="myStorage")
+                                h4.panel-title(style="text-align:center")
+                                    a(data-toggle="collapse", data-parent="#accordion", href="#collapse3", aria-expanded="true", aria-controls="collapse3")
+                                        |系统工具
+                            .panel-collapse.collapse(id="collapse3", role="tabpanel", aria-labelledby="myStorage")
+                                .panel-body(style="text-align:center")
+                                    ul.nav.nav-pills.nav-stacked
+                                        li(role="presentation")
+                                            a(id="cmd", href="#")
+                                                |模拟命令
+                                        li(role="presentation")
+                                            a(id="doc", href="#")
+                                                |接入文档
+                .col-md-10(style="padding-left:0px;padding-top:8px;")
+                    .container-fluid(id="content")
+        include ../includes/strap.jade
+        script(type='text/javascript', src='./js/' + jadePath + '.js')
+        script(type='text/javascript')
+            |CurSite.IMPL['#{id}'] = new CurSite.COMP.UserIndex({id:'#{id}', parent:'#{parent}', toUrl:'#{toUrl}', data:'#{data}'});

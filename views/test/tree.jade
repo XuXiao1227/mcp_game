@@ -1,0 +1,12 @@
+doctype html
+html(lang="en")
+    head
+        include ../includes/local.jade
+        link(rel="stylesheet", type="text/css", href="./build/tree/assets/dpl.css")
+        script(type='text/javascript').
+            require(["vs/test/vs_test"],function(VsTest){
+                VsTest.init();
+                VsTest.run();
+            });
+    body
+        div(id="treeContainer", style="width: 160px;font-size:14px;")

@@ -1,0 +1,116 @@
+doctype html
+html(lang="en")
+    head
+        include ../includes/strapcss.jade
+    body
+        .container-fluid
+            .row
+                .col-md-6
+                    h1 Hello, world!
+                .col-md-6
+                    h1 Hello, world!
+        .container-fluid
+            .row
+                .col-md-12
+                    u Hello, world!
+            .row
+                .col-md-12
+                    del Hello, world!
+        h1 基础表格
+        table.table
+            tbody
+                tr
+                    td a
+                    td b
+                    td c
+                tr
+                    td e
+                    td f
+                    td g
+        h1 有条纹的表格
+        table.table.table-striped
+            tbody
+                tr
+                    td a
+                    td b
+                    td c
+                tr
+                    td e
+                    td f
+                    td g
+                tr
+                    td h
+                    td i
+                    td j
+        h1 带边框的表格 .table-bordered
+        table.table.table-striped.table-bordered
+            tbody
+                tr
+                    td a
+                    td b
+                    td c
+                tr
+                    td e
+                    td f
+                    td g
+                tr
+                    td h
+                    td i
+                    td j
+        h1 带鼠标悬停的表格 .table-hover
+        table.table.table-striped.table-bordered.table-hover
+            tbody
+                tr
+                    td a
+                    td b
+                    td c
+                tr
+                    td e
+                    td f
+                    td g
+                tr
+                    td h
+                    td i
+                    td j
+        h1 表单
+        .container
+            form.form-horizontal
+                .form-group
+                    label.col-md-2.control-label(for="username") 用户名
+                    .col-md-10
+                        input.form-control(id="username", type="text", placeholder="您的用户名")
+                .form-group
+                    label.col-md-2.control-label(for="password") 密码
+                    .col-md-10
+                        input.form-control(id="password", type="password", placeholder="您的密码")
+                .form-group
+                    .col-sm-offset-2.col-md-10
+                        .checkbox
+                            label
+                                input(type="checkbox")
+                                |记住我一周
+                .form-group
+                    .col-sm-offset-2.col-md-10
+                        button.btn.btn-default(type="submit") Submit
+        h1 放在一行的表单
+        .container
+            label.checkbox-inline
+                input(type="checkbox" id="inlineCheckbox1" value="option1")
+                |1
+            label.checkbox-inline
+                input(type="checkbox" id="inlineCheckbox2" value="option2")
+                |2
+            label.checkbox-inline
+                input(type="checkbox" id="inlineCheckbox3" value="option3")
+                |3
+        h1 文本框
+        .container
+            .row
+                .col-md-6
+                    .input-group
+                        .input-group-addon $
+                        input.form-control(type="text", id="exampleInputAmount", placeholder="Amount")
+                        .input-group-addon .00
+        include ../includes/strap.jade
+        script(type='text/javascript').
+            //

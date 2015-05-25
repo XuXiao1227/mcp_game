@@ -1,0 +1,36 @@
+.container-fluid(style="padding-left:0px;")
+    .row
+        .col-md-1
+        .col-md-11
+            h2='第' + block.seq + "节"
+                |&nbsp;&nbsp;
+                |#{block.name}
+.container-fluid(style="padding-left:0px;")
+    .row
+        .col-md-1(id=id + '_ctrl')
+            .dropdown
+                button.btn.btn-default.btn-xs(type="button", data-toggle="dropdown" aria-haspopup="true", aria-expanded="false")
+                    |管理
+                    span.glyphicon.glyphicon-pencil
+                ul.dropdown-menu(role="menu", aria-labelledby="dLabel")
+                    li(role="presentation")
+                        a(id=id + '_insertHere', role="menuitem", tabindex="-1") 编辑
+                    li(role="presentation")
+                        a(id=id + '_insertBefore', role="menuitem", tabindex="-1") 上方插入
+                    li(role="presentation")
+                        a(id=id + '_insertAfter', role="menuitem", tabindex="-1") 下方插入
+                    li.divider(role="presentation")
+                    li(role="presentation")
+                        a(id=id + '_delete', role="menuitem", tabindex="-1") 删除
+        .col-md-11(id=id + "_content", style="font-size:16px;")
+.container-fluid(style="padding-left:0px;padding-top:10px;")
+    .row
+        .col-md-1
+        .col-md-11
+            button.btn.btn-default.btn-md(id=id + '_saveToServer', type="button")
+                span.glyphicon.glyphicon-floppy-disk
+                |保存
+            span.label-info 修改后一定记得保存到服务器哦
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.BookDetailBlock({id:'#{id}', parent:'#{parent}', block_id:'#{block_id}', content:'#{block.content}'});

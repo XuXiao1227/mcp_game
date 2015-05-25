@@ -1,0 +1,85 @@
+.container-fluid(style="padding-left:0px")
+    .panel.panel-default
+        .panel-heading
+            h2.panel-title 基本信息
+        table.table.table-striped.table-bordered.table-hover
+            tbody
+                tr
+                    td(width="240px")
+                        .col-xs-5 ID
+                        .col-xs-7=customer.id
+                    td(width="300px")
+                        .col-xs-5 昵称
+                        .col-xs-7=customer.nickname
+                    td
+                        .col-xs-5 注册时间
+                        .col-xs-7=customer.reg_time
+                tr
+                    td
+                        .col-xs-5 版本
+                        .col-xs-7=customer.client_type.des
+                    td
+                        .col-xs-5 渠道
+                        .col-xs-7=customer.channel.des
+                    td
+                        .col-xs-5 设备信息
+                        .col-xs-7
+                tr
+                    td
+                        .col-xs-5 最后登录设备
+                        .col-xs-7=customer.last_active_device
+                    td
+                        .col-xs-5 最后登录时间
+                        .col-xs-7=customer.last_active_time
+                    td
+                        .col-xs-5
+                        .col-xs-7
+    table.table.table-striped.table-bordered.table-hover
+        tbody
+            tr
+                td(width="240px")
+                    .col-xs-5 帐户余额
+                    .col-xs-7=customer.gold + '金币'
+                td(width="300px")
+                    .col-xs-5 用户等级
+                    .col-xs-7=customer.experience
+                td
+                    .col-xs-5
+                    .col-xs-7
+            tr
+                td(align="center")
+                    button.btn.btn-default.btn-sm(id=id + '_charge', type="button")
+                        span.glyphicon.glyphicon-search
+                        |充值记录
+                td(align="center")
+                    button.btn.btn-default.btn-sm(id=id + '_bet', type="button")
+                        span.glyphicon.glyphicon-search
+                        |投注记录
+                td(align="center")
+                    button.btn.btn-default.btn-sm(id=id + '_change', type="button")
+                        span.glyphicon.glyphicon-search
+                        |兑换记录
+            tr
+                td
+                    .col-xs-5 密码修改
+                    .col-xs-7
+                        input.form-control(id=id + "_password", style="width:80px;", type="password", value=customer.password)
+                td
+                    .col-xs-5 用户状态
+                    .col-xs-7
+                        select.form-control(id=id + '_status')
+                            - each val in customerStatus.data
+                                if(val.id == customer.status)
+                                    option(value=val.id, selected="true")=val.des
+                                else
+                                    option(value=val.id)=val.des
+                td
+                    .col-xs-5
+                    .col-xs-7
+.container-fluid(style="padding-left:0px")
+    button.btn.btn-default.btn-sm(id=id + '_save', type="button")
+        span.glyphicon.glyphicon-saved
+        |保存
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.AdminUserDetail({id:'#{id}', parent:'#{parent}', customer_id:'#{customer.id}'});

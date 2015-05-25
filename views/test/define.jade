@@ -1,0 +1,11 @@
+doctype html
+html(lang="en")
+    head
+        include ../includes/local.jade
+        script(type='text/javascript').
+            require(["vs/test/vs_test"],function(VsTest){
+                VsTest.init();
+                VsTest.run();
+            });
+    body
+        .mainifo 测试自定义模块

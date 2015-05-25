@@ -1,0 +1,70 @@
+doctype html
+html(lang="en")
+    head
+        include ../includes/strapcss.jade
+    body
+        a.btn.btn-primary(data-toggle="collapse", href="#collapseExample", aria-expanded="false", aria-controls="collapseExample") Link with href
+        button.btn.btn-primary(type="button", data-toggle="collapse", data-target="#collapseExample", aria-expanded="false", aria-controls="collapseExample") Button with data-target
+        .collapse(id="collapseExample")
+            .well good
+        h1 折叠组
+        .container
+            .panel-group(id="accordion", role="tablist", aria-multiselectable="true")
+                .panel.panel-default
+                    .panel-heading(role="tab", id="headingOne")
+                        h4.panel-title
+                            a(data-toggle="collapse", data-parent="#accordion", href="#collapseOne", aria-expanded="true", aria-controls="collapseOne") Collapsible Group Item #1
+                    .panel-collapse.collapse.in(id="collapseOne", role="tabpanel", aria-labelledby="headingOne")
+                        .panel-body
+                            |Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                .panel.panel-default
+                    .panel-heading(role="tab", id="headingTwo")
+                        h4.panel-title
+                            a.collapsed(data-toggle="collapse", data-parent="#accordion", href="#collapseTwo", aria-expanded="false", aria-controls="collapseTwo")
+                                |Collapsible Group Item #2
+                    .panel-collapse.collapse(id="collapseTwo", role="tabpanel", aria-labelledby="headingTwo")
+                        .panel-body
+                            |Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                .panel.panel-default
+                    .panel-heading(role="tab", id="headingThree")
+                        .panel-title
+                            a.collapsed(data-toggle="collapse", data-parent="#accordion", href="#collapseThree", aria-expanded="false", aria-controls="collapseThree")
+                                |Collapsible Group Item #3
+                    .panel-collapse.collapse(id="collapseThree", role="tabpanel", aria-labelledby="headingThree")
+                        .panel-body
+                            |Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        include ../includes/strap.jade
+        script(type='text/javascript').
+            //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

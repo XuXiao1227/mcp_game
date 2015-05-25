@@ -1,0 +1,85 @@
+doctype html
+html(lang="en")
+    head
+        include ../../includes/strapcss.jade
+    body
+        .navbar-top.navbar.navbar-default.navbar-fixed-top(id="navbar-top")
+            .container
+                .navbar-header
+                    a.navbar-brand(href="./index.html") 首页
+                p.navbar-text.navbar-right.co-brand.-xs
+                    img(src="")
+        .container(style="margin-top:68px;")
+            .row
+                .col-md-2
+                    .panel-group(id="accordion", role="tablist", aria-multiselectable="true")
+                        .panel.panel-primary
+                            .panel-heading(role="tab", id="myInfo")
+                                h4.panel-title(style="text-align:center")
+                                    a(data-toggle="collapse", data-parent="#accordion", href="#collapseOne", aria-expanded="true", aria-controls="collapseOne")
+                                        |用户管理
+                            .panel-collapse.collapse.in(id="collapseOne", role="tabpanel", aria-labelledby="myInfo")
+                                .panel-body(style="text-align:center")
+                                    ul.nav.nav-pills.nav-stacked
+                                        li(role="presentation")
+                                            a(id="customerMan", href="#")
+                                                |账户管理
+                                        li(role="presentation")
+                                            a(id="gold_log")
+                                                |帐户流水
+                        .panel.panel-primary
+                            .panel-heading(role="tab", id="myOrder")
+                                h4.panel-title(style="text-align:center")
+                                    a(data-toggle="collapse", data-parent="#accordion", href="#collapseTwo", aria-expanded="true", aria-controls="collapseTwo")
+                                        |游戏管理
+                            .panel-collapse.collapse(id="collapseTwo", role="tabpanel", aria-labelledby="myOrder")
+                                .panel-body(style="text-align:center")
+                                    ul.nav.nav-pills.nav-stacked
+                                        li(role="presentation")
+                                            a(id="gameMan", href="#")
+                                                |游戏管理
+                                        li(role="presentation")
+                                            a(id="game_level_man", href="#")
+                                                |奖级管理
+                                        li(role="presentation")
+                                            a(id="ticket_man", href="#")
+                                                |投注管理
+                        .panel.panel-primary
+                            .panel-heading(role="tab")
+                                h4.panel-title(style="text-align:center")
+                                    a(data-toggle="collapse", data-parent="#accordion", href="#collapse4", aria-expanded="true", aria-controls="collapse4")
+                                        |商城管理
+                            .panel-collapse.collapse(id="collapse4", role="tabpanel")
+                                .panel-body(style="text-align:center")
+                                    ul.nav.nav-pills.nav-stacked
+                                        li(role="presentation")
+                                            a(id="goodsMan", href="#")
+                                                |商品管理
+                        .panel.panel-primary
+                            .panel-heading(role="tab")
+                                h4.panel-title(style="text-align:center")
+                                    a(data-toggle="collapse", data-parent="#accordion", href="#collapse5", aria-expanded="true", aria-controls="collapse5")
+                                        |任务管理
+                            .panel-collapse.collapse(id="collapse5", role="tabpanel")
+                                .panel-body(style="text-align:center")
+                                    ul.nav.nav-pills.nav-stacked
+                                        li(role="presentation")
+                                            a(id="task_man", href="#")
+                                                |任务列表
+                        .panel.panel-primary
+                            .panel-heading(role="tab", id="myOrder")
+                                h4.panel-title(style="text-align:center")
+                                    a(data-toggle="collapse", data-parent="#accordion", href="#collapseThree", aria-expanded="true", aria-controls="collapseThree")
+                                        |系统常量
+                            .panel-collapse.collapse(id="collapseThree", role="tabpanel", aria-labelledby="myOrder")
+                                .panel-body(style="text-align:center")
+                                    ul.nav.nav-pills.nav-stacked
+                                        li(role="presentation")
+                                            a(id="subjectMan", href="#")
+                                                |系统科目
+                                        li(role="presentation")
+                                            a(href="#")
+                                                |项目二
+                .col-md-10(id="content")
+        include ../../includes/strap.jade
+        script(type='text/javascript', src='./js/' + jadePath + '.js')

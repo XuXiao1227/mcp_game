@@ -1,0 +1,160 @@
+.container-fluid
+    h1 系统接入文档
+.container-fluid
+    h2 通讯协议
+.container-fluid 接口采用http协议。
+.container-fluid
+    h2 格式
+.container-fluid 数据格式为json，接口请求内容分为两部分，head部分为消息头，body部分为消息体，
+.container-fluid {"head":"{\"cmd\":\"BT01\",\"digestType\":\"3des\",\"userId\":\"4\",\"userType\":\"NORMAL\",\"timeStamp\":\"2015-04-04 09:53:21.096\"}","body":"ZiEJzPkrI2h8ZczzhdEekF+td3s8bXjfrb3M9V8FKmZUt4o7Ze3Dof2AF6ofxPpverXOsAdIdVKHCIKt+M2lOfNxVbKKDx9yRdCm+5+hlv4JFgCQLZjR7eF/1RTRhJ1HllW3C/nVwEQb+AQNOVOPzw=="}
+.container-fluid
+    h2 head
+.container-fluid
+    h3 cmd
+    |命令标志码，决定你要处理的业务，不同的cmd码对应不同的业务场景。
+    br
+    h3 digestType
+    |加密方式，除了注册等不需要加密的业务场景（3des-empty），其它场景请使用3des。
+    br
+    h3 userId
+    |不需要登录的接口，不需要填，需要验证的接口，请使用登录时返回的userId
+    br
+    h3 userType
+    |用户类型，必填字段
+    br
+    h3 timeStamp
+    |时间戳，yyyy-MM-dd HH:mm:ss
+    br
+.container-fluid
+    h2 body
+.container-fluid
+    p 采用3des-cfb-nopadding加密，iv的base64之后的字符串为"AAAAAAAAAAA="，3des-empty使用的key为"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"，3des使用的key为登录时返回的st
+    p 加密的伪代码如下：
+    pre
+        |body = {"ticket":{"game_code":"G01","multiple":1,"amount":20,"number":"1,2"},"uuid":"f06c7332da7e45129c0b085af59e2cb8"};  //加密前的body
+        |bodyJsonStr = Json.stringify(body); //转换成json字符串
+        |bodyStr = 3des(bodyStr, iv, key);   //采用3des加密
+.container-fluid
+    h2 接口列表
+.container-fluid
+    ul.list-group
+        li.list-group-item
+            a(href='#' + id + '_register') 注册
+        li.list-group-item
+            a(href='#' + id + '_login') 登录
+        li.list-group-item
+            a(href='#' + id + '_query') 查询
+        li.list-group-item
+            a(href='#' + id + '_bet') 投注请求
+.container-fluid(id=id + '_register')
+    h3 注册
+.container-fluid
+    table.table.table-striped.table-bordered.table-hover
+        tbody
+            tr
+                td cmd
+                td U02
+            tr
+                td 加密
+                td 3des-empty
+            tr
+                td 输入
+                td { username: "user0001", nickname: "user0001", password: "user0001"}
+            tr
+                td 输出
+                td {code: 0, description: "系统处理成功"}
+            tr
+                td 描述
+                td 普通用户注册请求
+            tr
+                td 输入字段定义
+                td
+            tr
+                td username
+                td 用户名
+            tr
+                td nickname
+                td 昵称
+            tr
+                td password
+                td 密码
+.container-fluid(id=id + '_login')
+    h3 登录
+.container-fluid
+    table.table.table-striped.table-bordered.table-hover
+        tbody
+            tr
+                td cmd
+                td U01
+            tr
+                td 加密
+                td 3des
+            tr
+                td 输入
+                td {username: "test", password: "test"}
+            tr
+                td 输出
+                td {userId: 4, st: "7bd0012290cd45a58b3e77b8edbc0cd6", code: 0, description: "系统处理成功"}
+            tr
+                td 描述
+                td 普通用户登录请求，3des加密时的key=md5(password)
+            tr
+                td 输入字段定义
+                td
+            tr
+                td username
+                td 用户名
+            tr
+                td password
+                td 密码
+.container-fluid(id=id + '_query')
+    h3 用户查询
+.container-fluid
+    table.table.table-striped.table-bordered.table-hover
+        tbody
+            tr
+                td cmd
+                td U03
+            tr
+                td 加密
+                td 3des
+            tr
+                td 输入
+                td {}
+            tr
+                td 输出
+                td {"user":{"id":4,"username":"test","nickname":"","status":0,"experience":0,"gold":9000},"uuid":"9b7ee49ca194408db7512387e69be3ae","code":0,"description":"系统处理成功"}
+            tr
+                td 描述
+                td 普通用户查询自身信息
+            tr
+                td 输入字段定义
+                td
+.container-fluid(id=id + '_bet')
+    h3 投注请求
+.container-fluid
+    table.table.table-striped.table-bordered.table-hover
+        tbody
+            tr
+                td cmd
+                td BT01
+            tr
+                td 加密
+                td 3des
+            tr
+                td 输入
+                td {"ticket":{"game_code":"G01","multiple":1,"amount":20,"number":"1,2"}}
+            tr
+                td 输出
+                td {"customer":{"gold":9010},"ticket":{"game_code":"G01","multiple":1,"amount":20,"number":"1,2","draw_number":[3,2,2,2],"draw_info":[{"level":3,"count":1}],"hit_amount":30},"uuid":"5cea04b1771d4a3283cb96af16310746","code":0,"description":"系统处理成功"}
+            tr
+                td 描述
+                td 普通用户投注
+            tr
+                td 输入字段定义
+                td
+br
+br
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.SysDoc({id:'#{id}', parent:'#{parent}'});

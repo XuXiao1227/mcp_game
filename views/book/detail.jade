@@ -1,0 +1,40 @@
+.modal.fade.bs-example-modal-lg(id=id + '_myModal', tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+    .modal-dialog(style="width:800px;")
+        .modal-content
+            .modal-header
+                button.close(type="button", data-dismiss="modal", aria-label="Close")
+                    span(aria-hidden="true") &times;
+                h4.modal-title 选择一张图片
+            .modal-body(id=id + '_myModalBody')
+                p 数据加载中...
+            .modal-footer
+                button.btn.btn-primary(id=id + '_select', type="button") 选择
+                button.btn.btn-primary(type=id + '_button', data-dismiss="modal") 关闭
+.container-fluid
+    .row
+        .col-md-4
+            form.form-horizontal
+                .form-group
+                    label.col-md-4 封面
+                    .col-md-8
+                        p
+                            if book.cover_id > 0
+                                img(id=id + '_coverImg', width="80px;", src=fileSite + '?fileId=' + book.cover_id)
+                            else
+                                img(id=id + '_coverImg', width="80px;")
+                        button.btn.btn-default(id=id + '_upload', url="./user_uploadAvatar.html") 设置封面
+                .form-group
+                    label.col-md-4 名称
+                    .col-md-8=book.name
+                .form-group
+                    label.col-md-4 类型
+                    .col-md-8=book.type.name
+                .form-group
+                    label.col-md-4 创建时间
+                    .col-md-8=book.create_time
+        .col-md-8
+            p=book.remark
+.container-fluid(id=id + '_chapter')
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.BookDetail({id:'#{id}', parent:'#{parent}', bookId:'#{book.id}'});

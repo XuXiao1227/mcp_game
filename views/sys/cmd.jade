@@ -1,0 +1,27 @@
+.container-fluid
+    form
+        .form-group
+            label.control-label(for=id + "_cmd") 命令码
+            input.form-control(id=id + "_cmd", type="text", placeholder="cmd")
+        .form-group
+            label.control-label(for=id + "_body") 内容
+            textarea.form-control(id=id + "_body")
+.container-fluid
+    button.btn.btn-default(id=id + '_submit') 发送
+.container-fluid(style="padding-top:8px;")
+    form
+        .form-group
+            label.control-label(for=id + "_msg_body") (发送)body
+            textarea.form-control(id=id + "_msg_body")
+        .form-group
+            label.control-label(for=id + "_msg_encoded") (发送)加密后
+            textarea.form-control(id=id + "_msg_encoded")
+        .form-group
+            label.control-label(for=id + "_backmsg") (接收)解密前
+            textarea.form-control(id=id + "_backmsg")
+        .form-group
+            label.control-label(for=id + "_backmsg_decoded") (接收)解密后body
+            textarea.form-control(id=id + "_backmsg_decoded")
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.SysCmd({id:'#{id}', parent:'#{parent}'});

@@ -1,0 +1,39 @@
+.container-fluid(style="padding-left:0px;padding-top:8px")
+    .row
+        .col-sm-12
+            select(id=id + '_type')
+                option(value="-1") 所有
+                - each val in fileType.data
+                    if(val.id == cond.type)
+                        option(value=val.id, selected="true")=val.des
+                    else
+                        option(value=val.id)=val.des
+    .row(style="padding-top:6px;")
+        .col-sm-12
+            button.btn.btn-default(id=id + '_search', type="button", data-loading-text="处理中..", autocomplete="off") 搜索
+.container-fluid(style="padding-left:0px;padding-top:6px;")
+    table.table.table-striped.table-bordered.table-hover
+        thead
+            tr
+                td 名称
+                td 类型
+                td 大小
+                td 创建时间
+                td 操作
+        tbody
+            - each val in rst
+                tr
+                    td=val.name
+                    td=val.type.des
+                    td=parseInt(val.size*100/1024)/100 + 'KB'
+                    td=val.create_time
+                    td
+                        button.btn.btn-default(type="button", flag="detail", tId=val.id) 详情
+                        |&nbsp;&nbsp;
+                        button.btn.btn-default(type="button", flag=id + '_download', tId=val.id) 下载
+                        |&nbsp;&nbsp;
+                        button.btn.btn-default(type="button", flag=id + '_delete', tId=val.id) 删除
+.container-fluid(id=id + '_pageBar', style="padding-left:0px;")
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.UserMyFile({id:'#{id}', parent:'#{parent}', skip:'#{skip}', limit:'#{limit}', count:'#{count}'});

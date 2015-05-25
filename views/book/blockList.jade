@@ -1,0 +1,24 @@
+.container-fluid(style="padding-left:0px")
+    .btn-group
+        button.btn.btn-default(id=id + "_add", url="./book_addBlock.html") 新建小节
+.container-fluid(style="padding-left:0px;padding-top:6px;")
+    table.table.table-striped.table-bordered.table-hover
+        thead
+            tr
+                td 序号
+                td 名称
+                td 创建时间
+                td 操作
+        tbody
+            - each val in rst
+                tr
+                    td='第' + val.seq + '节'
+                    td=val.name
+                    td=val.create_time
+                    td
+                        button.btn.btn-default(type="button", flag=id + "_detail", tId=val.id) 详情
+                        button.btn.btn-default(type="button", flag=id + "_delete", tId=val.id) 删除
+.container-fluid(id=id + '_pageBar', style="padding-left:0px;")
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.BookBlockList({id:'#{id}', parent:'#{parent}', chapter_id:'#{chapter_id}', skip:'#{skip}', limit:'#{limit}', count:'#{count}', book_id:'#{book_id}'});

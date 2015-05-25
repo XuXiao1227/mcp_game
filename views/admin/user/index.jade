@@ -1,0 +1,10 @@
+.container-fluid(style="padding-left:0px")
+    .panel.panel-default
+        .panel-body
+            button.btn.btn-default.btn-sm(id=id + '_search', type="button")
+                span.glyphicon.glyphicon-search
+                |查询
+.container-fluid(id=id + '_content', style="padding-left:0px;padding-top:8px")
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.AdminUserIndex({id:'#{id}', parent:'#{parent}'});

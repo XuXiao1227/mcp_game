@@ -1,0 +1,7 @@
+.container-fluid(style="padding-left:0px")
+    .btn-group
+        button.btn.btn-default(id=id + "_addType", url="./admin_book_addType.html") 新建
+        button.btn.btn-default(id=id + "_listType", url="./admin_book_listType.html") 查询
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.AdminBookType({id:'#{id}', parent:'#{parent}'});

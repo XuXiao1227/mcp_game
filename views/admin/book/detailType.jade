@@ -1,0 +1,10 @@
+.container-fluid
+    .row
+        .col-md-12
+            form
+                .form-group
+                    label.col-sm-2 名称
+                    .col-sm-10=rst.name
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.AdminBookDetailType({id:'#{id}', parent:'#{parent}', parentId:'#{parentId}'});

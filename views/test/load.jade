@@ -1,0 +1,11 @@
+doctype html
+html(lang="en")
+    head
+        include ../includes/script.jade
+        script(type='text/javascript').
+            require(['node', 'io'], function ($, IO) {
+                alert($("#test").val());
+            });
+    body
+        .mainifo
+            input(type="button", id="test", value="测试")

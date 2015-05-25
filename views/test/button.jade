@@ -1,0 +1,46 @@
+doctype html
+html(lang="en")
+    head
+        include ../includes/strapcss.jade
+    body
+        button.btn.btn-primary(type="button", id="myButton", data-loading-text="Loading...", autocomplete="off")
+            |Loading state
+        include ../includes/strap.jade
+        script(type='text/javascript').
+            $('#myButton').on('click', function () {
+                var $btn = $(this).button('loading')
+                // business logic...
+                //$btn.button('reset')
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

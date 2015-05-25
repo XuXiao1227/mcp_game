@@ -1,0 +1,85 @@
+if count > 0
+    -var cur = parseInt(skip/limit) + 1;
+    if parseInt(count%limit) == 0
+        -var pCount = count/limit;
+    else
+        -var pCount = parseInt(count/limit) + 1
+    nav(id=id)
+        ul.pagination
+            li
+                a(flag=id, pIndex='1', aria-label="Previous")
+                    span(aria-hidden="true") &laquo;
+            if pCount < 9
+                -var i = 1;
+                while i < pCount + 1
+                    if cur == i
+                        li.active
+                            a(flag=id, pIndex=i)=i
+                    else
+                        li
+                            a(flag=id, pIndex=i)=i
+                    -i++;
+            else
+                if cur < 5
+                    -var i = 1;
+                    while i <= cur
+                        if cur == i
+                            li.active
+                                a(flag=id, pIndex=i)=i
+                        else
+                            li
+                                a(flag=id, pIndex=i)=i
+                        -i++;
+                    li
+                        a(flag=id, pIndex=cur+1)=cur+1
+                    li.disabled
+                        a ...
+                    li
+                        a(flag=id, pIndex=pCount-1)=pCount-1
+                    li
+                        a(flag=id, pIndex=pCount)=pCount
+                else
+                    if cur > pCount - 4
+                        li
+                            a(flag=id, pIndex="1") 1
+                        li
+                            a(flag=id, pIndex="2") 2
+                        li.disabled
+                            a ...
+                        -var i = cur - 1;
+                        while i <= pCount
+                            if cur == i
+                                li.active
+                                    a(flag=id, pIndex=i)=i
+                            else
+                                li
+                                    a(flag=id, pIndex=i)=i
+                            -i++;
+                    else
+                        li
+                            a(flag=id, pIndex="1") 1
+                        li
+                            a(flag=id, pIndex="2") 2
+                        li.disabled
+                            a ...
+                        -var i = cur - 1;
+                        while i <= cur + 1
+                            if cur == i
+                                li.active
+                                    a(flag=id, pIndex=i)=i
+                            else
+                                li
+                                    a(flag=id, pIndex=i)=i
+                            -i++;
+                        li.disabled
+                            a ...
+                        li
+                            a(flag=id, pIndex=pCount-1)=pCount-1
+                        li
+                            a(flag=id, pIndex=pCount)=pCount
+            li
+                a(flag=id, pIndex=pCount, aria-label="Next")
+                    span(aria-hidden="true") &raquo;
+    script(type='text/javascript', src='./js/' + jadePath + '.js')
+    script(type='text/javascript')
+        |CurSite.IMPL['#{id}'] = new CurSite.COMP.SysPageBar({id:'#{id}', parent:'#{parent}', parentId:'#{parentId}'});

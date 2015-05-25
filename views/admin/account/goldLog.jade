@@ -1,0 +1,53 @@
+.container-fluid(style="padding-left:0px")
+    form.form-inline
+        label.control-label(for=id + '_customer_id', style="font-size:16px;") 用户ID&nbsp;&nbsp;
+        input.form-control(id=id + '_customer_id', type='text', placeholder="用户id", value=cond.customer_id)
+        |&nbsp;&nbsp;&nbsp;&nbsp;
+        label.control-label(for=id + '_subject_id', style="font-size:16px;") 科目&nbsp;&nbsp;
+        select.form-control(id=id + '_subject_id')
+            option(value="0") 所有
+                - each val in subject.data.in
+                    if(val.id == cond.subject_id)
+                        option(value=val.id, selected="true")=val.des
+                    else
+                        option(value=val.id)=val.des
+                - each val in subject.data.out
+                    if(val.id == cond.subject_id)
+                        option(value=val.id, selected="true")=val.des
+                    else
+                        option(value=val.id)=val.des
+.container-fluid(style="padding-left:0px")
+    .row(style="padding-top:6px;")
+        .col-sm-12
+            button.btn.btn-default(id=id + '_search', type="button", data-loading-text="处理中..", autocomplete="off") 搜索
+.container-fluid(style="padding-left:0px;padding-top:6px;")
+    table.table.table-striped.table-bordered.table-hover
+        thead
+            tr
+                td ID
+                td 订单号
+                td 用户ID
+                td 科目
+                td 操作前
+                td 金额
+                td 操作后
+                td 状态
+                td 创建时间
+                td 操作
+        tbody
+            - each val in rst
+                tr
+                    td=val.id
+                    td=val.order_id
+                    td=val.customer_id
+                    td=val.subject_id.des
+                    td=val.before
+                    td=val.amount
+                    td=val.after
+                    td=val.status.des
+                    td=val.create_time
+                    td
+.container-fluid(id=id + '_pageBar', style="padding-left:0px;")
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.AdminAccountGoldLog({id:'#{id}', parent:'#{parent}', skip:'#{skip}', limit:'#{limit}', count:'#{count}'});

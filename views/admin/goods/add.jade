@@ -1,0 +1,25 @@
+.container-fluid(style="padding-left:0px")
+    .row
+        .col-md-4
+            label.control-label 名称
+            input.form-control(id=id + '_name', type="text")
+        .col-md-4
+            label.control-label 数量
+            input.form-control(id=id + '_num', type="text")
+    .row(style="padding-top:16px")
+        .col-md-4
+            label.control-label 图片
+            input.form-control(id=id + '_file_id', type="text")
+        .col-md-4
+            label.control-label 兑换金币
+            input.form-control(id=id + '_amount', type="text")
+    .row(style="padding-top:16px")
+        .col-md-8
+            label.control-label 描述
+            textarea.form-control(id=id + '_remark', type="text")
+    .row(style="padding-top:16px")
+        .col-md-12
+            button.btn.btn-default(id=id + '_submit', type="button", data-loading-text="处理中..", autocomplete="off") 创建
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.AdminGoodsAdd({id:'#{id}', parent:'#{parent}'});

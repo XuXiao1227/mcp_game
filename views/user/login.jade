@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+    head
+        include ../includes/strapcss.jade
+    body
+        .container
+            .row
+                .col-md-4
+                .col-md-4
+                    form.form-horizontal
+                        .form-group
+                            label.col-md-3.control-label(for="username") 用户名
+                            .col-md-9
+                                input.form-control(id="username", type="text", placeholder="您的用户名")
+                        .form-group
+                            label.col-md-3.control-label(for="password") 密码
+                            .col-md-9
+                                input.form-control(id="password", type="password", placeholder="您的密码")
+                        .form-group
+                            .col-sm-offset-3.col-md-9
+                                .checkbox
+                                    label
+                                        input(type="checkbox")
+                                        |记住我一周
+                        .form-group
+                            .col-sm-offset-3.col-md-9
+                                button.btn.btn-default(id="login", type="button", data-loading-text="处理中..", autocomplete="off") 登录
+                .col-md-4
+        include ../includes/strap.jade
+        script(type='text/javascript', src='./js/' + jadePath + '.js')

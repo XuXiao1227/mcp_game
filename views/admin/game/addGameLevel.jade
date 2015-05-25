@@ -1,0 +1,26 @@
+.container-fluid
+    .row
+        .col-md-12
+            form
+                .form-group
+                    label.control-label(for=id + '_game_code') 游戏
+                    select.form-control(id=id + '_game_code')
+                        - each val in game
+                            option(value=val.code)=val.code + '(' + val.name + ')'
+                .form-group
+                    label.control-label(for=id + '_code') 编码
+                    input.form-control(id=id + '_code', type="text", placeholder="编码", data-toggle="tooltip", data-placement="right", title="6-40位字母,_,数字,@")
+                .form-group
+                    label.control-label(for=id + '_name') 名称
+                    input.form-control(id=id + '_name', type="text", placeholder="名称", data-toggle="tooltip", data-placement="right", title="6-40位字母,_,数字,@")
+                .form-group
+                    label.control-label(for=id + '_hit_rule') 中奖规则
+                    textarea.form-control(id=id + '_hit_rule')
+                .form-group
+                    label.control-label(for=id + '_hit_amount') 中奖金额
+                    input.form-control(id=id + '_hit_amount', type="text", placeholder="中奖金额")
+                .form-group
+                    button.btn.btn-default(id=id + '_submit', type="button", data-loading-text="处理中..", autocomplete="off") 创建
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.AdminGameAddGameLevel({id:'#{id}', parent:'#{parent}'});

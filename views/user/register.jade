@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+    head
+        include ../includes/strapcss.jade
+    body
+        .container
+            .row
+                .col-md-4
+                .col-md-4
+                    form
+                        .form-group
+                            label.control-label(for="username") 用户名
+                            input.form-control(id="username", type="text", placeholder="您的用户名", data-toggle="tooltip", data-placement="right", title="6-40位字母,_,数字,@")
+                        .form-group
+                            label.control-label(for="nickname") 昵称
+                            input.form-control(id="nickname", type="text", placeholder="您的昵称", data-toggle="tooltip", data-placement="right", title="不能为空")
+                        .form-group
+                            label.control-label(for="password") 密码
+                            input.form-control(id="password", type="password", placeholder="您的密码", data-toggle="tooltip", data-placement="right", title="6-32位字母,_,数字,@")
+                        .form-group
+                            label.control-label(for="confirm") 确认密码
+                            input.form-control(id="confirm", type="password", placeholder="再次输入密码", data-toggle="tooltip", data-placement="right", title="必须和密码一致")
+                        .form-group
+                            button.btn.btn-default(id="login", type="button", data-loading-text="处理中..", autocomplete="off") 注册
+                .col-md-4
+        include ../includes/strap.jade
+        script(type='text/javascript', src='./js/' + jadePath + '.js')

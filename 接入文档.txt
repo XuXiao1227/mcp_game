@@ -1,0 +1,38 @@
+接口采用http协议。
+
+格式
+
+数据格式为json，接口请求内容分为两部分，head部分为消息头，body部分为消息体，
+
+{"head":"{\"cmd\":\"BT01\",\"digestType\":\"3des\",\"userId\":\"4\",\"userType\":\"NORMAL\",\"timeStamp\":\"2015-04-04 09:53:21.096\"}","body":"ZiEJzPkrI2h8ZczzhdEekF+td3s8bXjfrb3M9V8FKmZUt4o7Ze3Dof2AF6ofxPpverXOsAdIdVKHCIKt+M2lOfNxVbKKDx9yRdCm+5+hlv4JFgCQLZjR7eF/1RTRhJ1HllW3C/nVwEQb+AQNOVOPzw=="}
+
+cmd
+
+命令标志码，决定你要处理的业务，不同的cmd码对应不同的业务场景。
+
+digestType
+
+加密方式，除了注册等不需要加密的业务场景（3des-empty），其它场景请使用3des。
+
+userId
+
+不需要登录的接口，不需要填，需要验证的接口，请使用登录时返回的userId
+
+userType
+
+用户类型，必填字段
+
+timeStamp
+
+时间戳，yyyy-MM-dd HH:mm:ss
+
+body
+
+采用3des-cfb-nopadding加密，iv的base64之后的字符串为"AAAAAAAAAAA="，3des-empty使用的key为"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"，3des使用的key为登录时返回的st
+加密之后的内容，伪代码如下：
+
+body = {"ticket":{"game_code":"G01","multiple":1,"amount":20,"number":"1,2"},"uuid":"f06c7332da7e45129c0b085af59e2cb8"};  //加密前的body
+bodyJsonStr = Json.stringify(body); //转换成json字符串
+bodyStr = 3des(bodyStr, iv, key);   //采用3des加密
+
+

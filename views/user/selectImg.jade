@@ -1,0 +1,22 @@
+.container-fluid
+    table.table.table-striped.table-bordered.table-hover
+        thead
+            tr
+                td
+                td 名称
+                td
+                td 大小
+                td 创建时间
+        tbody
+            - each val in rst
+                tr
+                    td
+                        input(name=id + '_select', type="radio", value=val.id)
+                    td=val.name
+                    td
+                        img(src=fileSite + '?fileId=' + val.id, width="100px")
+                    td=parseInt(val.size*100/1024)/100 + 'KB'
+                    td=val.create_time
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.UserSelectImg({id:'#{id}'});
