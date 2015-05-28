@@ -59,7 +59,7 @@
                 td 3des-empty
             tr
                 td 输入
-                td { username: "user0001", nickname: "user0001", password: "user0001"}
+                td { "username": "user0001", "nickname": "user0001", "password": "user0001"}
             tr
                 td 输出
                 td {code: 0, description: "系统处理成功"}
@@ -91,7 +91,7 @@
                 td 3des
             tr
                 td 输入
-                td {username: "test", password: "test"}
+                td {"username": "test", "password": "test"}
             tr
                 td 输出
                 td {userId: 4, st: "7bd0012290cd45a58b3e77b8edbc0cd6", code: 0, description: "系统处理成功"}
@@ -137,22 +137,72 @@
         tbody
             tr
                 td cmd
-                td BT01
+                td U05
             tr
                 td 加密
                 td 3des
             tr
                 td 输入
-                td {"ticket":{"game_code":"G01","multiple":1,"amount":20,"number":"1,2"}}
+                td {"ticket":{"game_code":"G01","multiple":1,"amount":20,"number":"1,2", "draw_number":"1,2,3,4", "draw_info":"二等奖", "hit_amount":30}, "id":1}
             tr
                 td 输出
-                td {"customer":{"gold":9010},"ticket":{"game_code":"G01","multiple":1,"amount":20,"number":"1,2","draw_number":[3,2,2,2],"draw_info":[{"level":3,"count":1}],"hit_amount":30},"uuid":"5cea04b1771d4a3283cb96af16310746","code":0,"description":"系统处理成功"}
+                td {"customer":{"gold":9010},"goldPool":{"gold":1000990},"uuid":"5cea04b1771d4a3283cb96af16310746","code":0,"description":"系统处理成功"}
             tr
                 td 描述
                 td 普通用户投注
             tr
                 td 输入字段定义
                 td
+            tr
+                td game_code
+                td 游戏代号（G01 = 猜猜乐，G02 = 猜宝机）
+            tr
+                td multiple
+                td 玩家投注倍数
+            tr
+                td amount
+                td 投注金额（乘以倍数后）
+            tr
+                td number
+                td 押注号码
+            tr
+                td draw_number
+                td 开奖号码
+            tr
+                td draw_info
+                td 开奖信息
+            tr
+                td hit_amount
+                td 中奖奖励金额
+            tr
+                td id
+                td 奖池id（一期 = 1）
+.container-fluid(id=id + '_goldPool')
+    h3 奖池查询
+.container-fluid
+    table.table.table-striped.table-bordered.table-hover
+        tbody
+            tr
+                td cmd
+                td U06
+            tr
+                td 加密
+                td 3des
+            tr
+                td 输入
+                td {"id":1}
+            tr
+                td 输出
+                td {"goldPool":{"id":1,"gold":999950,"date":"2015-05-26 11:41:15.043964"},"uuid":"8c34e8b3716f40a78575971a1e2458fe","code":0,"description":"系统处理成功"}
+            tr
+                td 描述
+                td 用户查询奖池信息
+            tr
+                td 输入字段定义
+                td
+            tr
+                td id
+                td 奖池id（一期 = 1）
 br
 br
 script(type='text/javascript', src='./js/' + jadePath + '.js')
