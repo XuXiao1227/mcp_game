@@ -48,6 +48,10 @@
             a(href='#' + id + '_bet') 投注请求
         li.list-group-item
             a(href='#' + id + '_goldPool') 奖池查询
+        li.list-group-item
+            a(href='#' + id + '_playerList') 富豪榜
+        li.list-group-item
+            a(href='#' + id + '_taskLog') 完成任务
 .container-fluid(id=id + '_register')
     h3 注册
 .container-fluid
@@ -205,6 +209,64 @@
             tr
                 td id
                 td 奖池id（一期 = 1）
+.container-fluid(id=id + '_playerList')
+    h3 富豪榜
+.container-fluid
+    table.table.table-striped.table-bordered.table-hover
+        tbody
+            tr
+                td cmd
+                td U07
+            tr
+                td 加密
+                td 3des
+            tr
+                td 输入
+                td {}
+            tr
+                td 输出
+                td {"rst":[{"username":"test","acc_reward":0}],"uuid":"d4ba4db4660b417e8de7fc6da1d0f8c4","code":0,"description":"系统处理成功"}
+            tr
+                td 描述
+                td 用户查询富豪榜
+            tr
+                td 输入字段定义
+                td
+.container-fluid(id=id + '_taskLog')
+    h3 完成任务
+.container-fluid
+    table.table.table-striped.table-bordered.table-hover
+        tbody
+            tr
+                td cmd
+                td U08
+            tr
+                td 加密
+                td 3des
+            tr
+                td 输入
+                td {"task_log":{"user_id":2, "task_id":1, "reward_exp":50, "reward_gold":50}}
+            tr
+                td 输出
+                td {"rst":[{"username":"test","acc_reward":0}],"uuid":"d4ba4db4660b417e8de7fc6da1d0f8c4","code":0,"description":"系统处理成功"}
+            tr
+                td 描述
+                td 用户完成任务
+            tr
+                td 输入字段定义
+                td
+            tr
+                td user_id
+                td 用户id
+            tr
+                td task_id
+                td 任务id
+            tr
+                td reward_exp
+                td 任务奖励经验
+            tr
+                td reward_gold
+                td 任务奖励金币
 br
 br
 script(type='text/javascript', src='./js/' + jadePath + '.js')

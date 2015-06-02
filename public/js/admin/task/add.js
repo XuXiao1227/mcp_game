@@ -16,14 +16,14 @@ if(CurSite.COMP.AdminTaskAdd == undefined) {
             var data = self._getData();
             if(self._check(data))
             {
-                CurSite.postDigest({cmd:"AD05"}, null, data, function(err, backBody){
+                CurSite.postDigest({cmd:"AD06"}, null, data, function(err, backBody){
                     if(err)
                     {
                         alert(err.description);
                     }
                     else
                     {
-                        self._toPage("admin_goods_list.html")
+                        self._toPage("admin_task_list.html")
                     }
                 });
             }
@@ -41,12 +41,12 @@ if(CurSite.COMP.AdminTaskAdd == undefined) {
         var data = {};
         var name = $('#' + self.id + '_name').val();
         data.name = name;
-        var num = $('#' + self.id + '_num').val();
-        data.num = parseInt(num);
-        var amount = $('#' + self.id + '_amount').val();
-        data.amount = parseInt(amount);
-        var remark = $('#' + self.id + '_remark').val();
-        data.remark = remark;
+        var reward_exp = $('#' + self.id + '_rewardExp').val();
+        data.reward_exp = parseInt(reward_exp);
+        var reward_gold = $('#' + self.id + '_rewardGold').val();
+        data.reward_gold = parseInt(reward_gold);
+        var description = $('#' + self.id + '_description').val();
+        data.description = description;
         return data;
     };
 

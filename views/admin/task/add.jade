@@ -4,19 +4,19 @@
             label.control-label 名称
             input.form-control(id=id + '_name', type="text")
         .col-md-4
-            label.control-label 数量
-            input.form-control(id=id + '_num', type="text")
-    .row(style="padding-top:16px")
-        .col-md-4
             label.control-label 图片
             input.form-control(id=id + '_file_id', type="text")
+    .row(style="padding-top:16px")
         .col-md-4
-            label.control-label 兑换金币
-            input.form-control(id=id + '_amount', type="text")
+            label.control-label 奖励经验值
+            input.form-control(id=id + '_rewardExp', type="text")
+        .col-md-4
+            label.control-label 奖励金币
+            input.form-control(id=id + '_rewardGold', type="text")
     .row(style="padding-top:16px")
         .col-md-8
-            label.control-label 描述
-            textarea.form-control(id=id + '_remark', type="text")
+            label.control-label 任务描述
+            textarea.form-control(id=id + '_description', type="text")
     .row(style="padding-top:16px")
         .col-md-12
             button.btn.btn-default(id=id + '_submit', type="button", data-loading-text="处理中..", autocomplete="off") 创建
