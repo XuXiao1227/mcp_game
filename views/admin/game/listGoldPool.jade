@@ -1,0 +1,27 @@
+.container-fluid(style="padding-left:0px")
+    form.form-inline
+        label.control-label(for=id + '_code', style="font-size:16px;") 编码&nbsp;&nbsp;
+        input.form-control(id=id + '_code', type='text', placeholder="编码", value=cond.code)
+.container-fluid(style="padding-left:0px")
+    .row(style="padding-top:6px;")
+        .col-sm-12
+            button.btn.btn-default(id=id + '_search', type="button", data-loading-text="处理中..", autocomplete="off") 搜索
+.container-fluid(style="padding-left:0px;padding-top:6px;")
+    table.table.table-striped.table-bordered.table-hover
+        thead
+            tr
+                td 编码
+                td 金额
+                td 更新时间
+                td 操作
+        tbody
+            - each val in rst
+                tr
+                    td=val.id
+                    td=val.gold
+                    td=val.date
+                    td
+.container-fluid(id=id + '_pageBar', style="padding-left:0px;")
+script(type='text/javascript', src='./js/' + jadePath + '.js')
+script(type='text/javascript')
+    |CurSite.IMPL['#{id}'] = new CurSite.COMP.AdminGameListGoldPool({id:'#{id}', parent:'#{parent}', skip:'#{skip}', limit:'#{limit}', count:'#{count}'});

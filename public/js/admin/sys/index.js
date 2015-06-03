@@ -47,6 +47,11 @@ if(CurSite.COMP.AdminSysIndex == undefined) {
             self._toPage("./admin_task_man.html");
         })
 
+        //金池管理
+        $('#goldPoolMan').on('click', function(){
+            self._toPage("./admin_game_listGoldPool.html")
+        })
+
     };
 
     AdminSysIndex.prototype._toPage = function(url)
