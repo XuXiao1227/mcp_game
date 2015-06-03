@@ -32,8 +32,8 @@
                         .col-xs-5 最后登录时间
                         .col-xs-7=customer.last_active_time
                     td
-                        .col-xs-5
-                        .col-xs-7
+                        .col-xs-5 连续登陆天数
+                        .col-xs-7=customer.login_days
     table.table.table-striped.table-bordered.table-hover
         tbody
             tr
@@ -41,11 +41,11 @@
                     .col-xs-5 帐户余额
                     .col-xs-7=customer.gold + '金币'
                 td(width="300px")
-                    .col-xs-5 用户等级
+                    .col-xs-5 用户经验
                     .col-xs-7=customer.experience
                 td
-                    .col-xs-5
-                    .col-xs-7
+                    .col-xs-5 累计获奖
+                    .col-xs-7=customer.acc_reward
             tr
                 td(align="center")
                     button.btn.btn-default.btn-sm(id=id + '_charge', type="button")
