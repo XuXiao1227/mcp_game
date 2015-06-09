@@ -83,6 +83,25 @@ Gateway.prototype.startWeb = function()
         });
     });
 
+    app.post("/", function(req, res){
+        var head = null;
+        try {
+            head = JSON.parse(req.body.head);
+        }
+        catch(err)
+        {
+            console.log("消息格式错误.");
+        }
+        finally
+        {
+            var bodyStr = req.body.body;
+            self.handle(head, bodyStr, function(backMsgNode){
+                console.log(backMsgNode);
+                res.json(backMsgNode);
+            });
+        }
+    });
+
     app.post("/filter/interface.htm", function(req, res){
         var head = null;
         try {
