@@ -9,16 +9,16 @@
                 td 文字说明
                 td 兑换金币
                 td 上架时间
-                td 操作
+                td 状态
         tbody
             - each val in rst
                 tr
                     td=val.name
                     td=val.num
                     td=val.remark
-                    td=val.amount
+                    td=val.price
                     td=val.create_time
-                    td
+                    td=val.status.des
 .container-fluid(id=id + '_pageBar', style="padding-left:0px;")
 script(type='text/javascript', src='./js/' + jadePath + '.js')
 script(type='text/javascript')

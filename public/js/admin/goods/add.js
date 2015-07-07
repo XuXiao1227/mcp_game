@@ -44,7 +44,7 @@ if(CurSite.COMP.AdminGoodsAdd == undefined) {
         var num = $('#' + self.id + '_num').val();
         data.num = parseInt(num);
         var amount = $('#' + self.id + '_amount').val();
-        data.amount = parseInt(amount);
+        data.price = parseInt(amount);
         var remark = $('#' + self.id + '_remark').val();
         data.remark = remark;
         return data;

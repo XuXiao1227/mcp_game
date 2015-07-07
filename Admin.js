@@ -95,6 +95,7 @@ Gateway.prototype.startWeb = function()
         finally
         {
             var bodyStr = req.body.body;
+            bodyStr = bodyStr.replace(/ /g, '+');
             self.handle(head, bodyStr, function(backMsgNode){
                 console.log(backMsgNode);
                 res.json(backMsgNode);

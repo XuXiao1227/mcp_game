@@ -52,6 +52,12 @@
             a(href='#' + id + '_playerList') 富豪榜
         li.list-group-item
             a(href='#' + id + '_taskLog') 完成任务
+        li.list-group-item
+            a(href='#' + id + '_taskInfo') 任务列表
+        li.list-group-item
+            a(href='#' + id + '_purchase') 兑换奖品
+        li.list-group-item
+            a(href='#' + id + '_goodsInfo') 奖品列表
 .container-fluid(id=id + '_register')
     h3 注册
 .container-fluid
@@ -267,6 +273,87 @@
             tr
                 td reward_gold
                 td 任务奖励金币
+.container-fluid(id=id + '_taskInfo')
+    h3 任务列表
+.container-fluid
+    table.table.table-striped.table-bordered.table-hover
+        tbody
+            tr
+                td cmd
+                td U09
+            tr
+                td 加密
+                td 3des
+            tr
+                td 输入
+                td {}
+            tr
+                td 输出
+                td {"rst":[{"id":1,"name":"test task","end_time":"","status":1,"reward_exp":50,"reward_gold":50,"type":0}],"uuid":"fe6b182c8597479a8658a396b9c82c22","code":0,"description":"系统处理成功"}
+            tr
+                td 描述
+                td 普通用户查询任务列表
+            tr
+                td 输入字段定义
+                td
+.container-fluid(id=id + '_purchase')
+    h3 用户兑换奖品
+.container-fluid
+    table.table.table-striped.table-bordered.table-hover
+        tbody
+            tr
+                td cmd
+                td U10
+            tr
+                td 加密
+                td 3des
+            tr
+                td 输入
+                td {"userId":2, "itemId":1, "amount":1, "bill":50}
+            tr
+                td 输出
+                td {"customer":{"gold":1040},"uuid":"2a66930e7baf4408bab1e2edee7bdc44","code":0,"description":"系统处理成功"}
+            tr
+                td 描述
+                td 普通用户兑换奖品
+            tr
+                td 输入字段定义
+                td
+            tr
+                td userId
+                td 用户id
+            tr
+                td itemId
+                td 所兑奖品的id
+            tr
+                td amount
+                td 所兑奖品的数量
+            tr
+                td bill
+                td 兑换所用的总金额
+.container-fluid(id=id + '_goodsInfo')
+    h3 奖品列表
+.container-fluid
+    table.table.table-striped.table-bordered.table-hover
+        tbody
+            tr
+                td cmd
+                td U11
+            tr
+                td 加密
+                td 3des
+            tr
+                td 输入
+                td {}
+            tr
+                td 输出
+                td {"rst":[{"id":1,"name":"test item","num":1,"status":1,"price":50,"remark":"test"}],"uuid":"e9493fcb3fc14d8ba6b1c9bf00b12262","code":0,"description":"系统处理成功"}
+            tr
+                td 描述
+                td 普通用户查询奖品列表
+            tr
+                td 输入字段定义
+                td
 br
 br
 script(type='text/javascript', src='./js/' + jadePath + '.js')
