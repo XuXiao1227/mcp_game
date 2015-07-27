@@ -221,7 +221,7 @@ CurSite.postUnDigest = function(head, body, cb)
             console.log("back:");
             console.log(backBody);
             var err = null;
-            if(backBody.code != 0)
+            if(backBody.code != 1)
             {
                 err = {code:backBody.code, description:backBody.description};
             }
@@ -265,7 +265,7 @@ CurSite.postDigest = function(head, key, body, cb)
             console.log("back:");
             console.log(backBody);
             var err = null;
-            if(backBody.code != 0)
+            if(backBody.code != 1)
             {
                 err = {code:backBody.code, description:backBody.description};
             }

@@ -186,8 +186,8 @@ Gateway.prototype.handle = function(head, bodyStr, cb)
         }
         else
         {
-            bodyNode.code = ec[0].code;
-            bodyNode.description = ec[0].description;
+            bodyNode.code = ec[1].code;
+            bodyNode.description = ec[1].description;
         }
         console.log(bodyNode);
         var decodedBodyStr = digestUtil.generate(head, key, JSON.stringify(bodyNode));
