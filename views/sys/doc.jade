@@ -62,6 +62,10 @@
             a(href='#' + id + '_recharge') 用户充值
         li.list-group-item
             a(href='#' + id + '_gift') 系统奖励
+        li.list-group-item
+            a(href='#' + id + '_edit') 更新用户信息
+        li.list-group-item
+            a(href='#' + id + '_record') 用户查看记录
 .container-fluid(id=id + '_register')
     h3 注册
 .container-fluid
@@ -416,6 +420,70 @@
             tr
                 td amount
                 td 奖励金额
+.container-fluid(id=id + '_edit')
+    h3 更新用户信息
+.container-fluid
+    table.table.table-striped.table-bordered.table-hover
+        tbody
+            tr
+                td cmd
+                td U14
+            tr
+                td 加密
+                td 3des
+            tr
+                td 输入
+                td {"option":"ROLLCHANGE", "username":"rollchange", "nickname":"changed", "password":"rollchange"}
+            tr
+                td 输出
+                td {"uuid":"df9b5c6e48f348449d6d4a8516141fac","code":1,"description":"系统处理成功"}
+            tr
+                td 描述
+                td 用户更新信息或游客用户新注册
+            tr
+                td 输入字段定义
+                td
+            tr
+                td option
+                td 更新信息类型： ROLLCHANGE—游客转换普通用户，PASSWORD—修改密码，NICKNAME—修改昵称
+            tr
+                td username
+                td 更改后的用户名，ROLLCHANGE必填字段，其他option中不必填写
+            tr
+                td nickname
+                td 更改后的昵称，NICKNAME必填字段，ROLLCHANGE选填，其他option中不必填写
+            tr
+                td password
+                td 更改后的密码，PASSWORD、ROLLCHANGE必填字段，其他option中不必填写
+.container-fluid(id=id + '_record')
+    h3 用户查询记录
+.container-fluid
+    table.table.table-striped.table-bordered.table-hover
+        tbody
+            tr
+                td cmd
+                td U15
+            tr
+                td 加密
+                td 3des
+            tr
+                td 输入
+                td {"limit":5, "skip":5}
+            tr
+                td 输出
+                td {{"ticket":[{"customer_id":2,"game_code":"G02","amount":60,"hit_amount":20,"create_time":"2015-07-27 12:22:48.19516"}],"uuid":"286c1f7c060e48d08f6fe9ef61222d93","code":1,"description":"系统处理成功"}}
+            tr
+                td 描述
+                td 用户查询自己的投注记录，记录按从新到旧排列
+            tr
+                td 输入字段定义
+                td
+            tr
+                td limit
+                td 请求记录数量
+            tr
+                td skip
+                td 跳过前多少个记录
 br
 br
 script(type='text/javascript', src='./js/' + jadePath + '.js')
